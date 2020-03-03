@@ -1,45 +1,64 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "0.1.0",
-    "windows": {},
-    "osx": {},
-    "linux": {},
-    "command": "npm",
-    "isShellCommand": true,
-    "suppressTaskName": true,
-    "tasks": [
-        {
-            "taskName": "install",
-            "args": ["install"]
-        },
-        {
-            "taskName": "debug",
-            "args": ["run", "debug"]
-        },
-        {
-            "taskName": "update",
-            "args": ["update"]
-        },
-        {
-            "taskName": "test:node",
-            "isBuildCommand": false,
-            "isTestCommand": true,
-            "showOutput": "always",
-            "args": ["run", "test"]
-        },
-        {
-            "taskName": "remove",
-            "args": ["run", "remove"]
-        },
-        {
-            // preBuild Task
-            "taskName": "prebuild",
-            "isBuildCommand": true,
-            "isTestCommand": false,
-            "showOutput": "always",
-            "args": ["run", "prebuild"],
-            "problemMatcher": "$tsc"
-        }
-    ]
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "windows": {},
+  "osx": {},
+  "linux": {},
+  "command": "npm",
+  "tasks": [
+    {
+      "label": "install",
+      "args": ["install"],
+      "type": "shell"
+    },
+    {
+      "label": "debug",
+      "args": ["run", "debug"],
+      "type": "shell"
+    },
+    {
+      "label": "update",
+      "args": ["update"],
+      "type": "shell"
+    },
+    {
+      "label": "test:node",
+      "args": ["run", "test"],
+      "type": "shell",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "remove",
+      "args": ["run", "remove"]
+    },
+    {
+      "label": "prebuild",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "args": ["run", "prebuild"],
+      "problemMatcher": "$tsc"
+    }
+  ]
 }

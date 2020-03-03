@@ -16,16 +16,25 @@
     "**/*.js.map": true,
     "build/**": true
   },
-  "jscs.enable": false,
-  "jshint.enable": false,
   "search.exclude": {
     "**/node_modules": true,
-		"build/**": true,
-		"out*/**": true,
-		"extensions/**/out/**": true
+    "build/**": true,
+    "out*/**": true,
+    "extensions/**/out/**": true
   },
-  "tslint.enable": true,
-
+  // Use prettier to format typescript, javascript and JSON files
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  // Mocha Test Explorer
+  "mochaExplorer.files": "test/**/*.ts",
+  "mochaExplorer.require": "ts-node/register"
 }

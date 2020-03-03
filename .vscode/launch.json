@@ -1,59 +1,62 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-      {
-            "name": "Run Tests",
-            "type": "node",
-            "request": "launch",
-            "cwd": "${workspaceRoot}",
-            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
-            "args": [
-                "--require", "${workspaceRoot}/test/setup/setup-mocha.js",
-                "--require", "ignore-styles",
-                "--require", "ts-node/register",
-                "-u", "tdd",
-                "--timeout", "15000",
-                "--recursive",
-                "--check-leaks",
-                "--colors",
-                "${workspaceRoot}/out/test"
-            ],
-            "sourceMaps": true,
-            "outDir": "${workspaceRoot}/out"
-        },
-        {
-            "name": "Launch",
-            "type": "node",
-            "request": "launch",
-            "program": "${workspaceRoot}/src/index.ts",
-            "stopOnEntry": false,
-            "args": [],
-            "cwd": "${workspaceRoot}",
-            "preLaunchTask": "debug",
-            "runtimeExecutable": null,
-            "runtimeArgs": [
-                "--nolazy"
-            ],
-            "env": {
-                "NODE_ENV": "development"
-            },
-            "externalConsole": false,
-            "sourceMaps": true,
-            "outDir": "${workspaceRoot}/build"
-        },
-        {
-            "name": "Attach",
-            "type": "node",
-            "request": "attach",
-            // Port to attach to.
-            "port": 5858,
-            // TCP/IP address. Default is "localhost".
-            "address": "localhost",
-            "restart": false,
-            "sourceMaps": false,
-            "outDir": null,
-            "localRoot": "${workspaceRoot}",
-            "remoteRoot": null
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Tests",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "--require",
+        "${workspaceRoot}/test/setup/setup-mocha.js",
+        "--require",
+        "ignore-styles",
+        "--require",
+        "ts-node/register",
+        "-u",
+        "tdd",
+        "--timeout",
+        "15000",
+        "--recursive",
+        "--check-leaks",
+        "--colors",
+        "${workspaceRoot}/out/test"
+      ],
+      "sourceMaps": true,
+      "outFiles": ["${workspaceRoot}/out"]
+    },
+    {
+      "name": "Launch",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/src/index.ts",
+      "stopOnEntry": false,
+      "args": [],
+      "cwd": "${workspaceRoot}",
+      "preLaunchTask": "debug",
+      "runtimeExecutable": null,
+      "runtimeArgs": ["--nolazy"],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "internalConsole",
+      "sourceMaps": true,
+      "outFiles": ["${workspaceRoot}/build"]
+    },
+    {
+      "name": "Attach",
+      "type": "node",
+      "request": "attach",
+      // Port to attach to.
+      "port": 5858,
+      // TCP/IP address. Default is "localhost".
+      "address": "localhost",
+      "restart": false,
+      "sourceMaps": false,
+      // "outDir": null,
+      "localRoot": "${workspaceRoot}",
+      "remoteRoot": null
+    }
+  ]
 }
